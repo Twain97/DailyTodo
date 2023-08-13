@@ -13,7 +13,7 @@
             <p v-if="$store.state.user"  class="text-sm font-bold my-auto" >{{ name }}</p>
 
             </div>
-            
+            <!-- the lgo links to home page -->
             <router-link class="outline-none -mt-3 md:-mt-1 pt-1" to="/"><img :src="logo" alt="DTlogo" class="w-8 md:w-14"></router-link>
             
             <font-awesome-icon  v-if="$store.state.user"
