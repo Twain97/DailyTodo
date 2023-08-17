@@ -2,7 +2,7 @@
 module.exports = {
   content: [
     "./index.html",
-    "./_src/**/*.{html,js,vue,css}"],
+    "./src/**/*.{html,js,vue,css}"],
   theme: {
     screens:{
       sm:'480px',
