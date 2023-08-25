@@ -62,7 +62,10 @@
                 
             </ul>
         </nav>
-        <router-view class="md:w-full md:h-full overflow-hidden"></router-view>
+        <Transition name="slide-fade">
+          <router-view class="md:w-full md:h-full overflow-hidden"></router-view>
+        </Transition>
+        
       </div>
       
     </div>
@@ -72,16 +75,14 @@
 </template>
 <script>
 import Header from "../src/components/Header.vue"
-import Todo from "../src/components/Todo.vue"
-import router from './router'
-import { onBeforeMount, onMounted, ref } from "vue"
+import { onBeforeMount, onMounted } from "vue"
 import { useStore, mapState} from "vuex"
 import { browserSessionPersistence, getAuth, 
 onAuthStateChanged, setPersistence } from "firebase/auth"
 export default{
     components: {
-      Header,
-      Todo
+      Header
+
     }, 
 
     computed: {
@@ -153,3 +154,19 @@ export default{
   
 }
 </script>
+
+<style>
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
+</style>
