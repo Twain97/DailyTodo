@@ -1,8 +1,8 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory} from 'vue-router'
 import {auth} from './components/firebase'
 
 const router = createRouter({
-    history: createWebHistory(import.meta.env.BASE_URL),
+    history: createWebHashHistory(import.meta.env.BASE_URL),
     routes:[
       { 
         path: '/', 
@@ -38,7 +38,7 @@ const router = createRouter({
     }
     // if user is signed in and wants to redirect back to Landing,
     //  direct back to the specific page the user is on
-    router.beforeEach(async(to, from)=>{
+    router.beforeEach(async(to)=>{
       if(to.path == '/' && auth.currentUser){
         return router.push(router.currentRoute)
       }
