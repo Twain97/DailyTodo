@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory} from 'vue-router'
 import {auth} from './components/firebase'
-
+import loading from './components/loading.vue'
 const router = createRouter({
     history: createWebHashHistory(import.meta.env.BASE_URL),
     routes:[
@@ -8,6 +8,11 @@ const router = createRouter({
         path: '/', 
         name:'land',
         component:()=>import('./components/Landing.vue')
+      },
+      { 
+        path: '/loading', 
+        name:'loading',
+        component:loading
       },
       { 
         path: '/todo', 

@@ -1,4 +1,14 @@
 <template>
+  <!-- landing load -->
+  <div v-if="loadingShow" class="absolute z-50 w-full h-full bg-blue-200">
+    <div class="w-full flex h-full">
+        <div class="m-auto w-fit flex flex-col">
+            <BounceLoader/>
+            <b>Loading...</b>
+        </div>
+    </div>
+  </div>
+
   <div class="flex items-center h-full w-screen">
     <main class=" mx-auto px-7 py-7  flex flex-col space-y-5 border-2 border-silver-500 shadow-xl rounded-lg md:w-4/5 md:mb-32  w-4/5">
       <h1 class="text-gray-800 font-bold flex flex-col text-lg items-center justify-centerm text-center">
@@ -46,16 +56,25 @@
 </template>
 
 <script>
-
+import BounceLoader from 'vue-spinner/src/BounceLoader.vue'
 import { useStore } from 'vuex';
 import { ref } from 'vue';
 import {getAuth, signInWithPopup, GoogleAuthProvider} from 'firebase/auth';
 import router from '../router';
 
 export default{
+  components: {
+    BounceLoader
+  },
+  mounted () {
+    this.loadingShow=true
+    setTimeout(()=>{
+      this.loadingShow=false
+    }, 2000)
+  },
   data () {
     return {
-      // google:google
+      loadingShow:true
     }
   },
   setup(){

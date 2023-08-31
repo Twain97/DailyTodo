@@ -107,7 +107,7 @@ const store = createStore({
                 }
                 commit('setUser', auth.currentUser) //set the current user in the state
                 // direct to the required route
-                router.push('/todo')
+                router.push('/loading')
             },
 
             // register new user 
@@ -150,7 +150,7 @@ const store = createStore({
                 }
                 commit('setUser', auth.currentUser) //set the current user in the state
                 // direct to the required route
-                router.push('/todo')
+                router.push('/loading')
             },
             async logOut({commit}){
                 
@@ -176,7 +176,7 @@ const store = createStore({
                         commit('setUser', user)
 
                             if(router.isReady() && router.currentRoute.value.path === '/'){
-                                router.push('/todo')
+                                router.push('/loading')
                         }
                     }
                 })

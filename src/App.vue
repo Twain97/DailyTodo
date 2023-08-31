@@ -62,9 +62,9 @@
                 
             </ul>
         </nav>
-        <Transition name="slide-fade">
-          <router-view class="md:w-full md:h-full overflow-hidden"></router-view>
-        </Transition>
+            <Transition name="slide-fade">
+            <router-view class="md:w-full md:h-full overflow-hidden"></router-view>
+            </Transition>
         
       </div>
       
@@ -81,6 +81,7 @@ import { browserSessionPersistence, getAuth,
 onAuthStateChanged, setPersistence } from "firebase/auth"
 export default{
     components: {
+      // eslint-disable-next-line vue/no-reserved-component-names
       Header
 
     }, 
